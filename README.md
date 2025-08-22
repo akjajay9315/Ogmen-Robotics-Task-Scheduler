@@ -1,6 +1,32 @@
 # Ogmen-Robotics-Task-Scheduler
 A full-stack Robot Task Scheduler built with Python FastAPI (backend) and vanilla JS/HTML (frontend) to manage devices, define tasks, schedule executions, and track execution logs. Supports real-time updates and easy device/task management.
 
+## What I did -
+Created a repository Ogmen-Robotics-Task-Scheduler with separate backend and frontend directories.
+
+Set up the backend using FastAPI and configured Uvicorn to run the server.
+
+Designed database models for Devices, Tasks, Schedules, and Logs using SQLAlchemy.
+
+Configured Alembic for database migrations and schema management.
+
+Implemented API endpoints for: listing and adding devices, task definitions, scheduling tasks, executing tasks, and fetching execution logs.
+
+Built a frontend dashboard (tasks.html) to view devices, task definitions, schedules, and logs.
+
+Developed app.js to interact with backend APIs and update the frontend dynamically.
+
+Added polling every 5 seconds on the frontend to fetch real-time schedules and logs.
+
+Created a Python virtual environment and installed dependencies using requirements.txt.
+
+Ran Alembic migrations to create tables in the database.
+
+Started the backend on http://localhost:8000 and frontend on http://localhost:5500/tasks.html.
+
+Tested API endpoints and ensured proper functionality of task scheduling, execution, and logging.
+
+Verified that the frontend displayed tasks, schedules, and logs in real-time correctly.
 
 ## ⚡ Quick Start
 
