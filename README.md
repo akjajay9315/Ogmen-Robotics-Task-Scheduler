@@ -22,6 +22,8 @@ Created a Python virtual environment and installed dependencies using requiremen
 
 Ran Alembic migrations to create tables in the database.
 
+Used PostgreSQL and DBeaver for local database testing.
+
 Started the backend on http://localhost:8000 and frontend on http://localhost:5500/tasks.html.
 
 Tested API endpoints and ensured proper functionality of task scheduling, execution, and logging.
