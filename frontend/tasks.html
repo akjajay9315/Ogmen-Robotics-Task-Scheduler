@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ORo Task Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+            margin: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+            background: #f7f7f7;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 6px 8px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        code {
+            background: #f3f3f3;
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+
+        .muted {
+            color: #666;
+        }
+
+        .status {
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Robot Task Scheduler</h1>
+
+    <div class="grid">
+        <div class="card">
+            <h2>Devices</h2>
+            <div id="devices"></div>
+            <hr />
+            <h3>Add Device</h3>
+            <div class="row">
+                <input id="device_name" placeholder="Device name" />
+                <input id="device_model" placeholder="Model" />
+                <button onclick="addDevice()">Add</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Task Definitions</h2>
+            <div id="definitions"></div>
+            <hr />
+            <h3>Create Task Definition</h3>
+            <div class="row">
+                <input id="task_name" placeholder="task_name e.g. go_to_location" />
+                <input id="schema" placeholder='parameters_schema JSON e.g. {"location":"string"}'
+                    style="min-width: 360px;" />
+                <button onclick="addDefinition()">Add</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Schedules for <span id="selDeviceName" class="muted">(select a device)</span></h2>
+            <div id="schedules"></div>
+        </div>
+
+        <div class="card">
+            <h2>Logs for <span id="selDeviceNameLogs" class="muted">(select a device)</span></h2>
+            <div id="logs"></div>
+        </div>
+
+        <div class="card">
+            <h2>Schedule a Task</h2>
+            <div class="row">
+                <select id="device_select"></select>
+                <select id="definition_select"></select>
+            </div>
+            <div class="row">
+                <input id="scheduled_time" type="datetime-local" />
+                <input id="params" placeholder='parameters JSON e.g. {"location":"kitchen"}'
+                    style="min-width: 360px;" />
+                <button onclick="scheduleTask()">Schedule</button>
+            </div>
+            <div id="schedule_feedback" class="muted"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
